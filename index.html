@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>MySite</title>
+    </head>
+
+    <body>
+        <script>
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', "http://microservice-app/index.html", true);
+            xhr.send();
+            xhr.onreadystatechange = processRequest;
+            function processRequest(e) {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                var response = JSON.parse(xhr.responseText);
+                document.write(response.Text);
+                }
+            }
+        </script>
+    </body>
+ 
+</html>
